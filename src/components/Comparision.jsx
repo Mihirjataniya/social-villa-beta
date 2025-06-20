@@ -349,26 +349,30 @@ export default function Comparison() {
 
                 {/* Tab Navigation */}
                 <div ref={tabRef} className="flex justify-center mb-8">
-                    <div className="bg-[#FFFAF5]/10 backdrop-blur-sm rounded-full p-1 border border-[#FF9000]/30">
-                        <button
-                            onClick={() => setActiveTab("services")}
-                            className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${activeTab === "services"
-                                    ? "bg-[#FF9000] text-black shadow-lg"
-                                    : "text-[#FFFAF5] hover:text-white"
-                                }`}
-                        >
-                            Services Comparison
-                        </button>
-                        <button
-                            onClick={() => setActiveTab("features")}
-                            className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${activeTab === "features"
-                                    ? "bg-[#FF9000] text-black shadow-lg"
-                                    : "text-[#FFFAF5] hover:text-white"
-                                }`}
-                        >
-                            Features Matrix
-                        </button>
+                    <div className="bg-[#FFFAF5]/10 backdrop-blur-sm rounded-full  border border-[#FF9000]/30 overflow-x-auto no-scrollbar">
+                        <div className="flex justify-center items-center whitespace-nowrap">
+                            <button
+                                onClick={() => setActiveTab("services")}
+                                className={`px-6 py-2 rounded-l-full font-medium transition-all duration-300 ${activeTab === "services"
+                                        ? "bg-[#FF9000] text-black shadow-lg"
+                                        : "text-[#FFFAF5] hover:text-white"
+                                    }`}
+                            >
+                                Services Comparison
+                            </button>
+                            <button
+                                onClick={() => setActiveTab("features")}
+                                className={`px-6 py-2 rounded-r-full font-medium transition-all duration-300 ${activeTab === "features"
+                                        ? "bg-[#FF9000] text-black shadow-lg"
+                                        : "text-[#FFFAF5] hover:text-white"
+                                    }`}
+                            >
+                                Features Matrix
+                            </button>
+                        </div>
                     </div>
+
+
                 </div>
 
                 {/* Services Comparison */}
@@ -487,19 +491,40 @@ export default function Comparison() {
                 )}
 
                 {/* CTA Section */}
-                <div ref={ctaRef} className="text-center">
-                    <div className="bg-[#FF9000]/10 border border-[#FF9000]/30 rounded-3xl p-8 backdrop-blur-sm">
-                        <h2 className="text-3xl font-bold text-white mb-4">Ready to Experience the Future?</h2>
-                        <p className="text-lg text-[#FFFAF5] mb-6 max-w-2xl mx-auto">
-                            Join hundreds of businesses that have transformed their digital presence with our next-generation marketing solutions.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button className="bg-[#FF9000] text-black px-6 py-3 rounded-full font-semibold text-base hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-                                Start Your Transformation
-                            </button>
-                            <button className="border border-[#FF9000]/50 text-[#FF9000] px-6 py-3 rounded-full font-semibold text-base hover:bg-[#FF9000]/10 transition-all duration-300">
-                                Schedule a Demo
-                            </button>
+                <div className="flex items-center justify-center p-4 relative overflow-hidden">
+                    {/* Moving background elements */}
+                    <div className="absolute inset-0">
+                        {/* Floating orbs */}
+                        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-orange-500/20 rounded-full blur-xl animate-pulse"></div>
+                        <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-amber-500/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+                        <div className="absolute top-1/2 left-1/3 w-20 h-20 bg-orange-400/20 rounded-full blur-xl animate-pulse delay-500"></div>
+
+                        {/* Moving gradient blobs */}
+                        <div className="absolute top-10 right-10 w-40 h-40 bg-gradient-to-r from-orange-500/10 to-amber-500/10 rounded-full blur-2xl animate-bounce"></div>
+                        <div className="absolute bottom-10 left-10 w-36 h-36 bg-gradient-to-r from-amber-500/10 to-orange-600/10 rounded-full blur-2xl animate-bounce delay-700"></div>
+
+
+                        <div
+                            className="absolute -bottom-20 -right-20 w-80 h-80 bg-gradient-to-br from-amber-500/5 to-orange-600/5 rounded-full blur-3xl animate-spin"
+                            style={{ animationDuration: "25s", animationDirection: "reverse" }}
+                        ></div>
+                    </div>
+
+                    <div ref={ctaRef} className="text-center max-w-7xl w-full relative z-10 ">
+                        <div className="bg-white/5 border border-white/10 rounded-3xl px-8 py-12 backdrop-blur-md shadow-xl">
+                            <h2 className="text-5xl font-bold text-white mb-4">Ready to Experience the Future?</h2>
+                            <p className="text-lg text-white/80 mb-6 max-w-2xl mx-auto">
+                                Join hundreds of businesses that have transformed their digital presence with our next-generation marketing
+                                solutions.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                <button className="bg-[#FF9000]/90 text-black px-6 py-3 rounded-full font-semibold text-base hover:bg-[#FF9000] hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                                    Start Your Transformation
+                                </button>
+                                <button className="border border-white/20 text-white px-6 py-3 rounded-full font-semibold text-base hover:bg-white/10 hover:border-white/30 transition-all duration-300">
+                                    Schedule a Demo
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

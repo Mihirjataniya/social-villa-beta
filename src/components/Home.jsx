@@ -260,7 +260,7 @@ function Home() {
     }
 
     return (
-        <div ref={heroRef} className="relative min-h-screen overflow-hidden bg-black">
+        <div     ref={heroRef} className="relative min-h-screen overflow-hidden bg-black">
             {/* Animated Grid Background */}
             <div ref={gridRef} className="absolute inset-0 opacity-10">
                 {Array.from({ length: 15 }).map((_, i) => (
@@ -428,12 +428,6 @@ function Home() {
                                 <div className="connection-line absolute top-28 sm:top-36 md:top-40 right-12 sm:right-16 md:right-20 w-14 sm:w-16 md:w-20 h-px bg-gradient-to-l from-[#ff9000] to-transparent" />
                                 <div className="connection-line absolute bottom-28 sm:bottom-36 md:bottom-40 left-10 sm:left-12 md:left-16 w-18 sm:w-22 md:w-28 h-px bg-gradient-to-r from-[#ff9000] to-transparent" />
                                 <div className="connection-line absolute bottom-16 sm:bottom-20 md:bottom-24 right-16 sm:right-20 md:right-24 w-12 sm:w-14 md:w-16 h-px bg-gradient-to-l from-[#ff9000] to-transparent" />
-
-                                {/* Data Points */}
-                                <div className="data-point hologram-element absolute top-12 sm:top-16 md:top-20 left-1/2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#ff9000] rounded-full" />
-                                <div className="data-point hologram-element absolute top-1/3 right-8 sm:right-12 md:right-16 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#ff9000] rounded-full" />
-                                <div className="data-point hologram-element absolute bottom-1/3 left-6 sm:left-8 md:left-12 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#ff9000] rounded-full" />
-                                <div className="data-point hologram-element absolute bottom-12 sm:bottom-16 md:bottom-20 right-1/3 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#ff9000] rounded-full" />
 
                                 {/* Social Icons */}
                                 <div className="hologram-element absolute top-4 sm:top-6 md:top-8 right-6 sm:right-8 md:right-12 p-1 rounded border border-[#ff9000]/80 flex items-center justify-center">

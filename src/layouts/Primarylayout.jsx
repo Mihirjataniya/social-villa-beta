@@ -7,7 +7,7 @@ import ScrollProgress from '../components/ScrollProgress'
 
 const PrimaryLayout = () => {
     return (
-        <div className="min-h-screen font-primary flex flex-col bg-black over">
+        <div  className="min-h-screen font-primary flex flex-col bg-black over">
             {/* <Navbar /> */}
             <Navbar />
             <main className="flex-grow">

@@ -8,7 +8,7 @@ const projects = [
             "Developed a cohesive brand identity for a SaaS company, including logo design, typography, and visual guidelines, resulting in a 200% increase in brand recall.",
         image: "https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         category: "Brand Strategy",
-        year: "2024",
+        year: "2025",
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ const projects = [
             "Crafted a user-first, full-stack e-commerce platform with seamless payment integrations and personalized shopping features, leading to a 3.5x increase in conversion rate.",
         image: "https://images.pexels.com/photos/7679865/pexels-photo-7679865.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         category: "Web Design",
-        year: "2024",
+        year: "2025",
     },
     {
         id: 3,
@@ -26,7 +26,7 @@ const projects = [
             "Planned and executed a targeted influencer campaign for a beauty brand across Instagram and YouTube, resulting in 120K+ user-generated content posts and a 35% boost in product sales.",
         image: "https://avignyata.com/wp-content/uploads/2023/09/influencer-marketing-job-concept.jpg",
         category: "Influencer Marketing",
-        year: "2023",
+        year: "2024",
     },
     {
         id: 4,
@@ -35,7 +35,7 @@ const projects = [
             "Built an enterprise-grade dashboard for real-time analytics and business intelligence, helping decision-makers track KPIs across departments.",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=400&fit=crop",
         category: "UI/UX Design",
-        year: "2023",
+        year: "2024",
     },
     {
         id: 5,
@@ -138,7 +138,7 @@ export default function ProjectsSection() {
     }
 
     return (
-        <div ref={sectionRef} className="bg-black py-8 px-4 font-sans">
+        <div ref={sectionRef} className="bg-black py-8 px-4 font-sans mt-14 md:mt-28">
             {/* Header */}
             <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-extrabold mb-4 font-heading text-[#FF9000] tracking-wider">Our Latest Projects</h2>
@@ -226,7 +226,7 @@ const ContentCard = ({ project, index, expandedCards, isMobile }) => {
 
                 {/* Category and Year Badge */}
                 <div className="absolute top-6 left-6 z-10">
-                    <div className="inline-flex items-center gap-2 bg-[#FF9000] text-black px-3 py-2 rounded-xl text-sm font-bold shadow-lg">
+                    <div className="inline-flex items-center gap-2 bg-[#ffffff] text-black px-3 py-2 rounded-xl text-sm font-bold shadow-lg">
                         <span>{project.category}</span>
                         <span className="opacity-70">•</span>
                         <span>{project.year}</span>

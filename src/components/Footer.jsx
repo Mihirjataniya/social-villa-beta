@@ -59,10 +59,16 @@ function Footer() {
     }, [])
 
     return (
-        <footer ref={footerRef} className="bg-gradient-to-br from-gray-900 to-black py-20 px-8 mt-18 relative overflow-hidden">
+        <footer
+            ref={footerRef}
+            className="bg-gradient-to-br from-[#7a3700] via-[#a54d00] to-[#6b2f00] py-20 px-8 mt-18 relative overflow-hidden"
+        >
+
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,144,0,0.05)_0,transparent_70%)]" />
+
             {/* Background elements */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,144,0,0.03)_0,transparent_70%)]" />
-            <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,rgba(255,144,0,0.01)_25%,transparent_25%),linear-gradient(-45deg,rgba(255,144,0,0.01)_25%,transparent_25%)] bg-[size:100px_100px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,144,0,0.05)_0,transparent_70%)]" />
+            <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,rgba(255,144,0,0.02)_25%,transparent_25%),linear-gradient(-45deg,rgba(255,144,0,0.02)_25%,transparent_25%)] bg-[size:100px_100px]" />
 
             <div className="relative z-10 max-w-7xl mx-auto">
                 {/* Main footer content */}
@@ -70,9 +76,9 @@ function Footer() {
                     {/* Logo and description */}
                     <div className="footer-item md:col-span-2">
                         <div className="mb-6">
-                            <h2 className="text-2xl font-bold text-white mb-2">Social Villa</h2>
+                            <h2 className="text-5xl font-bold text-white mb-2">Social Villa</h2>
                         </div>
-                        <p className="text-gray-400 text-lg leading-relaxed mb-6 max-w-md">
+                        <p className="text-gray-200 text-lg leading-relaxed mb-6 max-w-md">
                             Transforming brands through innovative digital experiences that captivate, engage, and convert. Your
                             success is our passion.
                         </p>
@@ -92,7 +98,6 @@ function Footer() {
                                     <i className={`${social.icon} text-xl`}></i>
                                 </a>
                             ))}
-
                         </div>
                     </div>
 
@@ -104,7 +109,7 @@ function Footer() {
                                 <li key={service}>
                                     <a
                                         href="#"
-                                        className="text-gray-400 hover:text-orange-500 transition-colors duration-300 cursor-pointer"
+                                        className="text-gray-200 hover:text-orange-500 transition-colors duration-300 cursor-pointer"
                                     >
                                         {service}
                                     </a>
@@ -116,7 +121,7 @@ function Footer() {
                     {/* Contact */}
                     <div className="footer-item">
                         <h3 className="text-white text-xl font-bold mb-6">Contact</h3>
-                        <div className="space-y-3 text-gray-400">
+                        <div className="space-y-3 text-gray-200">
                             <p>hello@socialvilla.com</p>
                             <p>+1 (555) 123-4567</p>
                             <p>
@@ -129,8 +134,8 @@ function Footer() {
                 </div>
 
                 {/* Bottom bar */}
-                <div className="footer-item border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                    <div className="text-gray-500 text-center md:text-left mb-4 md:mb-0">
+                <div className="footer-item border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center">
+                    <div className="text-gray-200 text-center md:text-left mb-4 md:mb-0">
                         © 2024 Social Villa. All rights reserved. Crafted with passion and precision.
                     </div>
                     <div className="flex space-x-6 text-sm">
@@ -138,7 +143,7 @@ function Footer() {
                             <a
                                 key={link}
                                 href="#"
-                                className="text-gray-500 hover:text-orange-500 transition-colors duration-300 cursor-pointer"
+                                className="text-gray-200 hover:text-orange-500 transition-colors duration-300 cursor-pointer"
                             >
                                 {link}
                             </a>
@@ -147,6 +152,7 @@ function Footer() {
                 </div>
             </div>
         </footer>
+
     )
 }
 

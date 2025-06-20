@@ -14,9 +14,9 @@ const Landing = () => {
       <DoubleMarquee />
       <Introduction />
       <ServicesSection />
+      <ProjectSection />
       <Comparison />
       <Testimonials />
-      <ProjectSection />
     </div>
   )
 }
