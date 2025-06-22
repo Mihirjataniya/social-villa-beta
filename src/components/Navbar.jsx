@@ -1,11 +1,13 @@
 // src/components/Navbar.jsx
 import { useState, useEffect, useRef } from "react"
 import { gsap } from "gsap"
+import { useNavigate } from "react-router-dom"
 
 function Navbar() {
     const mobileMenuRef = useRef(null)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
+    const navigate = useNavigate()
 
     const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev)
 
@@ -69,13 +71,12 @@ function Navbar() {
     }
 
     return (
-        <nav className={`sticky top-0 bg-black bg-opacity-80 backdrop-blur-lg z-50 transition-all duration-300 ${
-            isScrolled ? 'border-b-2 border-[#ff9000]/60 shadow-2xl' : ''
-        }`}>
+        <nav className={`sticky top-0 bg-black bg-opacity-80 backdrop-blur-lg z-50 transition-all duration-300 ${isScrolled ? 'border-b-2 border-[#ff9000]/60 shadow-2xl' : ''
+            }`}>
             <div className="mx-auto px-4 sm:px-6 lg:px-14">
                 <div className="grid grid-cols-2 md:grid-cols-3 items-center h-16 md:h-20">
                     {/* Logo */}
-                    <div className="flex w-full justify-start">
+                    <div onClick={()=>navigate('/')} className="flex w-full cursor-pointer justify-start">
                         <img className="h-12 " src="/logo2.png" alt="" />
                     </div>
 
@@ -131,51 +132,14 @@ function Navbar() {
                             </div>
 
                             <div className="relative group">
-                                <button className="text-gray-300 hover:text-[#ff9000] transition-colors duration-200 flex items-center space-x-1">
-                                    <span>Portfolio</span>
-                                    <svg
-                                        className="w-4 h-4 transition-transform group-hover:rotate-180"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div className="absolute top-full left-0 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
-                                    <div
-                                        className="rounded-lg backdrop-blur-md border shadow-lg"
-                                        style={{
-                                            background: "rgba(0, 0, 0, 0.8)",
-                                            borderColor: "rgba(255, 144, 0, 0.2)",
-                                        }}
-                                    >
-                                        <a
-                                            href="#"
-                                            className="block px-4 py-3 text-gray-300 hover:text-[#ff9000] hover:bg-[#ff9000]/10 transition-colors"
-                                        >
-                                            Case Studies
-                                        </a>
-                                        <a
-                                            href="#"
-                                            className="block px-4 py-3 text-gray-300 hover:text-[#ff9000] hover:bg-[#ff9000]/10 transition-colors"
-                                        >
-                                            Client Success Stories
-                                        </a>
-                                        <a
-                                            href="#"
-                                            className="block px-4 py-3 text-gray-300 hover:text-[#ff9000] hover:bg-[#ff9000]/10 transition-colors"
-                                        >
-                                            Creative Showcase
-                                        </a>
-                                    </div>
-                                </div>
+                                <a href="/portfolio" className="text-gray-300 hover:text-[#ff9000] transition-colors duration-200">
+                                    Portfolio
+                                </a>
                             </div>
-
-                            <a href="#" className="text-gray-300 hover:text-[#ff9000] transition-colors duration-200">
+                            <a href="/about-us" className="text-gray-300 hover:text-[#ff9000] transition-colors duration-200">
                                 About
                             </a>
-                            <a href="#" className="text-gray-300 hover:text-[#ff9000] transition-colors duration-200">
+                            <a href="/contact-us" className="text-gray-300 hover:text-[#ff9000] transition-colors duration-200">
                                 Contact
                             </a>
                         </div>
@@ -218,7 +182,7 @@ function Navbar() {
                     background: "rgba(0, 0, 0, 0.9)",
                     borderColor: "rgba(255, 144, 0, 0.2)",
                     display: "none",
-                    overflow: "hidden", 
+                    overflow: "hidden",
                 }}
             >
                 <div className="px-4 py-6 space-y-4">
@@ -243,26 +207,15 @@ function Navbar() {
                     </div>
 
                     <div>
-                        <button className="w-full text-left text-gray-300 hover:text-[#ff9000] transition-colors py-2 font-medium">
-                            Portfolio
-                        </button>
-                        <div className="pl-4 space-y-2 mt-2">
-                            <a href="#" className="block text-gray-400 hover:text-[#ff9000] transition-colors py-1">
-                                Case Studies
-                            </a>
-                            <a href="#" className="block text-gray-400 hover:text-[#ff9000] transition-colors py-1">
-                                Client Success Stories
-                            </a>
-                            <a href="#" className="block text-gray-400 hover:text-[#ff9000] transition-colors py-1">
-                                Creative Showcase
-                            </a>
-                        </div>
+                        <a href="/portfolio" className="block text-gray-300 hover:text-[#ff9000] transition-colors py-2 font-medium">
+                        Porfolio
+                    </a>
                     </div>
 
-                    <a href="#" className="block text-gray-300 hover:text-[#ff9000] transition-colors py-2 font-medium">
+                    <a href="/about-us" className="block text-gray-300 hover:text-[#ff9000] transition-colors py-2 font-medium">
                         About
                     </a>
-                    <a href="#" className="block text-gray-300 hover:text-[#ff9000] transition-colors py-2 font-medium">
+                    <a href="/contact-us" className="block text-gray-300 hover:text-[#ff9000] transition-colors py-2 font-medium">
                         Contact
                     </a>
 

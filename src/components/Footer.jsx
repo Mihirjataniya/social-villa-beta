@@ -136,7 +136,7 @@ function Footer() {
                 {/* Bottom bar */}
                 <div className="footer-item border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center">
                     <div className="text-gray-200 text-center md:text-left mb-4 md:mb-0">
-                        © 2024 Social Villa. All rights reserved. Crafted with passion and precision.
+                        © 2025 Social Villa. All rights reserved. Crafted with passion and precision.
                     </div>
                     <div className="flex space-x-6 text-sm">
                         {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((link) => (
