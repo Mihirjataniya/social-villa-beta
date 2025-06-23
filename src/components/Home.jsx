@@ -260,9 +260,9 @@ function Home() {
     }
 
     return (
-        <div     ref={heroRef} className="relative min-h-screen overflow-hidden bg-black">
+        <div ref={heroRef} className="relative min-h-screen overflow-hidden" style={{ backgroundColor: "#FCF6F1" }}>
             {/* Animated Grid Background */}
-            <div ref={gridRef} className="absolute inset-0 opacity-10">
+            <div ref={gridRef} className="absolute inset-0 opacity-20">
                 {Array.from({ length: 15 }).map((_, i) => (
                     <div
                         key={i}
@@ -289,11 +289,11 @@ function Home() {
                 ))}
             </div>
 
-            {/* Floating Orbs - Reduced */}
+            {/* Floating Orbs - Adjusted for light theme */}
             <div ref={orbsRef} className="absolute inset-0 pointer-events-none">
-                <div className="floating-orb absolute top-20 left-20 w-24 h-24 rounded-full bg-[#ff9000] opacity-15 blur-xl glow-pulse" />
-                <div className="floating-orb absolute top-40 right-32 w-16 h-16 rounded-full bg-[#ff9000] opacity-25 blur-lg parallax-slow" />
-                <div className="hidden md:block floating-orb absolute bottom-40 left-32 w-32 h-32 rounded-full bg-[#ff9000] opacity-10 blur-2xl parallax-fast" />
+                <div className="floating-orb absolute top-20 left-20 w-24 h-24 rounded-full bg-[#ff9000] opacity-8 blur-xl glow-pulse" />
+                <div className="floating-orb absolute top-40 right-32 w-16 h-16 rounded-full bg-[#ff9000] opacity-12 blur-lg parallax-slow" />
+                <div className="hidden md:block floating-orb absolute bottom-40 left-32 w-32 h-32 rounded-full bg-[#ff9000] opacity-6 blur-2xl parallax-fast" />
             </div>
 
             {/* Main Content */}
@@ -304,24 +304,30 @@ function Home() {
                         <div className="w-full space-y-6 md:space-y-8 text-center lg:text-left order-1">
                             {/* Title */}
                             <div ref={titleRef}>
-                                <h1 className="text-7xl font-heading tracking-wider lg:text-8xl xl:text-8xl font-black leading-none text-[#FFFAF5]">
+                                <h1
+                                    className="text-7xl font-heading tracking-wider lg:text-8xl xl:text-8xl font-black leading-none"
+                                    style={{ color: "#010101" }}
+                                >
                                     WE CREATE
                                     <br />
                                     <span className="relative inline-block" style={{ color: "#FF9000" }}>
                                         SOCIAL
                                         <div
-                                            className="absolute -inset-1 md:-inset-2 lg:-inset-4 blur-lg md:blur-xl lg:blur-2xl opacity-30"
+                                            className="absolute -inset-1 md:-inset-2 lg:-inset-4 blur-lg md:blur-xl lg:blur-2xl opacity-20"
                                             style={{ backgroundColor: "#FF9000" }}
                                         />
                                     </span>
                                     <br />
-                                    <span className="text-gray-300">EXPERIENCES</span>
+                                    <span style={{ color: "#010101", opacity: 0.7 }}>EXPERIENCES</span>
                                 </h1>
                             </div>
 
                             {/* Subtitle */}
                             <div ref={subtitleRef}>
-                                <p className="text-base text-white sm:text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                                <p
+                                    className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+                                    style={{ color: "#010101" }}
+                                >
                                     That Drive <span className="text-[#ff9000] font-semibold">Engagement</span>,{" "}
                                     <span className="text-[#ff9000] font-semibold">Growth</span>, and{" "}
                                     <span className="text-[#ff9000] font-semibold">Success</span>
@@ -334,8 +340,8 @@ function Home() {
                                     className="px-6 md:px-8 py-3 md:py-4 text-sm sm:text-base md:text-lg font-bold rounded-full transition-all duration-200 max-w-xs mx-auto sm:mx-0"
                                     style={{
                                         backgroundColor: "#FF9000",
-                                        color: "#000000",
-                                        boxShadow: "0 20px 40px rgba(255, 144, 0, 0.3)",
+                                        color: "#010101",
+                                        boxShadow: "0 20px 40px rgba(255, 144, 0, 0.25)",
                                     }}
                                     onMouseEnter={handleButtonHover}
                                     onMouseLeave={handleButtonLeave}
@@ -343,7 +349,10 @@ function Home() {
                                     Start Your Journey
                                 </button>
                                 <button
-                                    className="px-6 md:px-8 py-3 md:py-4 text-sm sm:text-base md:text-lg font-bold rounded-full border-2 border-[#ff9000] text-[#ff9000] hover:bg-[#ff9000] hover:text-black transition-all duration-200 max-w-xs mx-auto sm:mx-0"
+                                    className="px-6 md:px-8 py-3 md:py-4 text-sm sm:text-base md:text-lg font-bold rounded-full border-2 border-[#ff9000] text-[#ff9000] hover:bg-[#ff9000] transition-all duration-200 max-w-xs mx-auto sm:mx-0"
+                                    style={{
+                                        color: "#FF9000",
+                                    }}
                                     onMouseEnter={handleButtonHover}
                                     onMouseLeave={handleButtonLeave}
                                 >
@@ -356,17 +365,17 @@ function Home() {
                         <div ref={hologramRef} className="w-full flex justify-center lg:justify-end order-2 lg:mt-0">
                             <div className="relative w-72 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[500px] lg:w-[450px] lg:h-[600px]">
                                 {/* Central Hologram Core */}
-                                <div className=" hologram-element absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <div className="hologram-element absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                     <div
                                         className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full hologram-glow"
                                         style={{
                                             background:
-                                                "radial-gradient(circle, rgba(255, 144, 0, 0.8) 0%, rgba(255, 144, 0, 0.2) 70%, transparent 100%)",
-                                            boxShadow: "0 0 60px rgba(255, 144, 0, 0.6), inset 0 0 30px rgba(255, 144, 0, 0.3)",
+                                                "radial-gradient(circle, rgba(255, 144, 0, 0.6) 0%, rgba(255, 144, 0, 0.15) 70%, transparent 100%)",
+                                            boxShadow: "0 0 60px rgba(255, 144, 0, 0.4), inset 0 0 30px rgba(255, 144, 0, 0.2)",
                                         }}
                                     >
-                                        <div className="absolute inset-3 sm:inset-4 rounded-full border-2 border-[#ff9000]/80 opacity-60" />
-                                        <div className="absolute inset-6 sm:inset-8 rounded-full border border-[#ff9000]/50 opacity-40" />
+                                        <div className="absolute inset-3 sm:inset-4 rounded-full border-2 border-[#ff9000]/60 opacity-80" />
+                                        <div className="absolute inset-6 sm:inset-8 rounded-full border border-[#ff9000]/40 opacity-60" />
                                     </div>
                                 </div>
 
@@ -374,73 +383,81 @@ function Home() {
                                 <div
                                     className="floating-card hologram-element absolute top-8 sm:top-12 md:top-16 left-2 sm:left-4 md:left-8 p-2 sm:p-3 md:p-4 rounded-lg backdrop-blur-md"
                                     style={{
-                                        background: "rgba(255, 144, 0, 0.1)",
-                                        border: "1px solid rgba(255, 144, 0, 0.3)",
-                                        boxShadow: "0 8px 32px rgba(255, 144, 0, 0.2)",
+                                        background: "rgba(255, 255, 255, 0.8)",
+                                        border: "1px solid rgba(255, 144, 0, 0.4)",
+                                        boxShadow: "0 8px 32px rgba(255, 144, 0, 0.15)",
                                     }}
                                 >
-                                    <div className="text-[#ff9000]/80 text-xs font-semibold mb-1">ENGAGEMENT</div>
-                                    <div className="text-[#FFFAF5] text-sm sm:text-base md:text-lg font-bold">+247%</div>
+                                    <div className="text-[#ff9000] text-xs font-semibold mb-1">ENGAGEMENT</div>
+                                    <div style={{ color: "#010101" }} className="text-sm sm:text-base md:text-lg font-bold">
+                                        +247%
+                                    </div>
                                     <div className="w-12 sm:w-14 md:w-16 h-1 bg-[#ff9000] rounded mt-1 sm:mt-2" />
                                 </div>
 
                                 <div
                                     className="floating-card hologram-element absolute top-20 sm:top-28 md:top-32 right-1 sm:right-2 md:right-4 p-2 sm:p-3 md:p-4 rounded-lg backdrop-blur-md"
                                     style={{
-                                        background: "rgba(255, 144, 0, 0.1)",
-                                        border: "1px solid rgba(255, 144, 0, 0.3)",
-                                        boxShadow: "0 8px 32px rgba(255, 144, 0, 0.2)",
+                                        background: "rgba(255, 255, 255, 0.8)",
+                                        border: "1px solid rgba(255, 144, 0, 0.4)",
+                                        boxShadow: "0 8px 32px rgba(255, 144, 0, 0.15)",
                                     }}
                                 >
-                                    <div className="text-[#ff9000]/80 text-xs font-semibold mb-1">REACH</div>
-                                    <div className="text-[#FFFAF5] text-sm sm:text-base md:text-lg font-bold">2.4M</div>
+                                    <div className="text-[#ff9000] text-xs font-semibold mb-1">REACH</div>
+                                    <div style={{ color: "#010101" }} className="text-sm sm:text-base md:text-lg font-bold">
+                                        2.4M
+                                    </div>
                                     <div className="w-10 sm:w-12 md:w-12 h-1 bg-[#ff9000] rounded mt-1 sm:mt-2" />
                                 </div>
 
                                 <div
                                     className="floating-card hologram-element absolute bottom-20 sm:bottom-28 md:bottom-32 left-1 sm:left-2 md:left-4 p-2 sm:p-3 md:p-4 rounded-lg backdrop-blur-md"
                                     style={{
-                                        background: "rgba(255, 144, 0, 0.1)",
-                                        border: "1px solid rgba(255, 144, 0, 0.3)",
-                                        boxShadow: "0 8px 32px rgba(255, 144, 0, 0.2)",
+                                        background: "rgba(255, 255, 255, 0.8)",
+                                        border: "1px solid rgba(255, 144, 0, 0.4)",
+                                        boxShadow: "0 8px 32px rgba(255, 144, 0, 0.15)",
                                     }}
                                 >
-                                    <div className="text-[#ff9000]/80 text-xs font-semibold mb-1">CONVERSION</div>
-                                    <div className="text-[#FFFAF5] text-sm sm:text-base md:text-lg font-bold">18.9%</div>
+                                    <div className="text-[#ff9000] text-xs font-semibold mb-1">CONVERSION</div>
+                                    <div style={{ color: "#010101" }} className="text-sm sm:text-base md:text-lg font-bold">
+                                        18.9%
+                                    </div>
                                     <div className="w-12 sm:w-14 md:w-14 h-1 bg-[#ff9000] rounded mt-1 sm:mt-2" />
                                 </div>
 
                                 <div
                                     className="floating-card hologram-element absolute bottom-8 sm:bottom-12 md:bottom-16 right-2 sm:right-4 md:right-8 p-2 sm:p-3 md:p-4 rounded-lg backdrop-blur-md"
                                     style={{
-                                        background: "rgba(255, 144, 0, 0.1)",
-                                        border: "1px solid rgba(255, 144, 0, 0.3)",
-                                        boxShadow: "0 8px 32px rgba(255, 144, 0, 0.2)",
+                                        background: "rgba(255, 255, 255, 0.8)",
+                                        border: "1px solid rgba(255, 144, 0, 0.4)",
+                                        boxShadow: "0 8px 32px rgba(255, 144, 0, 0.15)",
                                     }}
                                 >
-                                    <div className="text-[#ff9000]/80 text-xs font-semibold mb-1">ROI</div>
-                                    <div className="text-[#FFFAF5] text-sm sm:text-base md:text-lg font-bold">340%</div>
+                                    <div className="text-[#ff9000] text-xs font-semibold mb-1">ROI</div>
+                                    <div style={{ color: "#010101" }} className="text-sm sm:text-base md:text-lg font-bold">
+                                        340%
+                                    </div>
                                     <div className="w-8 sm:w-10 md:w-10 h-1 bg-[#ff9000] rounded mt-1 sm:mt-2" />
                                 </div>
 
                                 {/* Connection Lines */}
-                                <div className="connection-line absolute top-16 sm:top-20 md:top-24 left-12 sm:left-16 md:left-20 w-16 sm:w-20 md:w-24 h-px bg-gradient-to-r from-[#ff9000] to-transparent" />
-                                <div className="connection-line absolute top-28 sm:top-36 md:top-40 right-12 sm:right-16 md:right-20 w-14 sm:w-16 md:w-20 h-px bg-gradient-to-l from-[#ff9000] to-transparent" />
-                                <div className="connection-line absolute bottom-28 sm:bottom-36 md:bottom-40 left-10 sm:left-12 md:left-16 w-18 sm:w-22 md:w-28 h-px bg-gradient-to-r from-[#ff9000] to-transparent" />
-                                <div className="connection-line absolute bottom-16 sm:bottom-20 md:bottom-24 right-16 sm:right-20 md:right-24 w-12 sm:w-14 md:w-16 h-px bg-gradient-to-l from-[#ff9000] to-transparent" />
+                                <div className="connection-line absolute top-16 sm:top-20 md:top-24 left-12 sm:left-16 md:left-20 w-16 sm:w-20 md:w-24 h-px bg-gradient-to-r from-[#ff9000] to-transparent opacity-60" />
+                                <div className="connection-line absolute top-28 sm:top-36 md:top-40 right-12 sm:right-16 md:right-20 w-14 sm:w-16 md:w-20 h-px bg-gradient-to-l from-[#ff9000] to-transparent opacity-60" />
+                                <div className="connection-line absolute bottom-28 sm:bottom-36 md:bottom-40 left-10 sm:left-12 md:left-16 w-18 sm:w-22 md:w-28 h-px bg-gradient-to-r from-[#ff9000] to-transparent opacity-60" />
+                                <div className="connection-line absolute bottom-16 sm:bottom-20 md:bottom-24 right-16 sm:right-20 md:right-24 w-12 sm:w-14 md:w-16 h-px bg-gradient-to-l from-[#ff9000] to-transparent opacity-60" />
 
                                 {/* Social Icons */}
-                                <div className="hologram-element absolute top-4 sm:top-6 md:top-8 right-6 sm:right-8 md:right-12 p-1 rounded border border-[#ff9000]/80 flex items-center justify-center">
+                                <div className="hologram-element absolute top-4 sm:top-6 md:top-8 right-6 sm:right-8 md:right-12 p-1 rounded border border-[#ff9000]/60 flex items-center justify-center bg-white/50">
                                     <Instagram className="w-4 h-4 text-[#ff9000]" />
                                 </div>
 
                                 {/* Twitter */}
-                                <div className="hologram-element absolute top-1/2 left-2 sm:left-3 md:left-4 p-1 rounded border border-[#ff9000]/80 flex items-center justify-center">
+                                <div className="hologram-element absolute top-1/2 left-2 sm:left-3 md:left-4 p-1 rounded border border-[#ff9000]/60 flex items-center justify-center bg-white/50">
                                     <Twitter className="w-4 h-4 text-[#ff9000]" />
                                 </div>
 
                                 {/* LinkedIn */}
-                                <div className="hologram-element absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/3 p-1 rounded border border-[#ff9000]/80 flex items-center justify-center">
+                                <div className="hologram-element absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/3 p-1 rounded border border-[#ff9000]/60 flex items-center justify-center bg-white/50">
                                     <Linkedin className="w-4 h-4 text-[#ff9000]" />
                                 </div>
                             </div>
@@ -454,9 +471,12 @@ function Home() {
                 <div className="w-6 h-10 border-2 border-[#ff9000] rounded-full flex justify-center">
                     <div className="w-1 h-3 bg-[#ff9000] rounded-full mt-2 animate-bounce" />
                 </div>
-                <p className="text-sm mt-2 text-gray-400">Scroll to explore</p>
+                <p className="text-sm mt-2" style={{ color: "#010101", opacity: 0.6 }}>
+                    Scroll to explore
+                </p>
             </div>
         </div>
+        
     )
 }
 

@@ -57,7 +57,7 @@ export default function Introduction() {
         },
     ]
 
-   useEffect(() => {
+    useEffect(() => {
         const loadGSAP = async () => {
 
             // Set initial states - elements hidden off-screen
@@ -217,44 +217,40 @@ export default function Introduction() {
         const elements = {
             story: (
                 <div className="relative w-full h-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#ff9000]/20 to-[#ff9000]/5 rounded-2xl"></div>
-                    <div className="absolute bottom-6 right-6 lg:bottom-12 lg:right-12 w-12 h-1 lg:w-24 lg:h-2 bg-[#ff9000]/60 rounded-full"></div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl lg:text-6xl font-black text-[#ff9000]/20">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#ff9000]/15 to-[#ff9000]/5 rounded-2xl"></div>
+                    <div className="absolute bottom-6 right-6 lg:bottom-12 lg:right-12 w-12 h-1 lg:w-24 lg:h-2 bg-[#ff9000]/70 rounded-full"></div>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl lg:text-6xl font-black text-[#ff9000]/25">
                         2019
                     </div>
                 </div>
             ),
             philosophy: (
                 <div className="relative w-full h-full">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-[#ff9000]/15 to-transparent rounded-2xl"></div>
-                    <div className="absolute top-3 right-3 lg:top-6 lg:right-6 w-10 h-10 lg:w-20 lg:h-20 border border-[#ff9000]/30 rotate-45"></div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-[#ff9000]/12 to-transparent rounded-2xl"></div>
+                    <div className="absolute top-3 right-3 lg:top-6 lg:right-6 w-10 h-10 lg:w-20 lg:h-20 border border-[#ff9000]/40 rotate-45"></div>
                     <div className="absolute bottom-4 left-4 lg:bottom-8 lg:left-8 w-16 h-0.5 lg:w-32 lg:h-1 bg-gradient-to-r from-[#ff9000] to-transparent"></div>
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <div className="w-6 h-6 lg:w-12 lg:h-12 bg-[#ff9000]/30 rounded-full blur-sm"></div>
+                        <div className="w-6 h-6 lg:w-12 lg:h-12 bg-[#ff9000]/40 rounded-full blur-sm"></div>
                     </div>
                 </div>
             ),
             approach: (
                 <div className="relative w-full h-full">
-                    <div className="absolute inset-0 bg-gradient-to-bl from-[#ff9000]/10 to-[#ff9000]/20 rounded-2xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-bl from-[#ff9000]/8 to-[#ff9000]/15 rounded-2xl"></div>
                     <div className="grid grid-cols-3 gap-2 absolute inset-8">
                         {[...Array(9)].map((_, i) => {
-                            const opacity = i % 3 === 0 ? 0.1 : i % 3 === 1 ? 0.2 : 0.4;
+                            const opacity = i % 3 === 0 ? 0.15 : i % 3 === 1 ? 0.25 : 0.35
                             return (
-                                <div
-                                    key={i}
-                                    className="rounded "
-                                    style={{ backgroundColor: `rgba(255, 144, 0, ${opacity})` }}
-                                ></div>
-                            );
+                                <div key={i} className="rounded" style={{ backgroundColor: `rgba(255, 144, 0, ${opacity})` }}></div>
+                            )
                         })}
                     </div>
                 </div>
             ),
             team: (
                 <div className="relative w-full h-full">
-                    <div className="absolute inset-0 bg-gradient-to-tl from-[#ff9000]/25 to-transparent rounded-2xl"></div>
-                    <div className="absolute bottom-4 right-4 lg:bottom-8 lg:right-8 w-8 h-8 lg:w-16 lg:h-16 border-2 border-[#ff9000]/40 rounded-lg rotate-12"></div>
+                    <div className="absolute inset-0 bg-gradient-to-tl from-[#ff9000]/20 to-transparent rounded-2xl"></div>
+                    <div className="absolute bottom-4 right-4 lg:bottom-8 lg:right-8 w-8 h-8 lg:w-16 lg:h-16 border-2 border-[#ff9000]/50 rounded-lg rotate-12"></div>
                 </div>
             ),
         }
@@ -264,44 +260,63 @@ export default function Introduction() {
     return (
         <div
             ref={containerRef}
-            className="max-w-[85rem] mx-auto bg-black text-white relative min-h-screen overflow-x-hidden mt-12"
+            className="max-w-[85rem] mx-auto relative min-h-screen overflow-x-hidden mt-12"
+            style={{ backgroundColor: "#FCF6F1", color: "#010101" }}
         >
             <div className="flex flex-col lg:flex-row h-full">
                 {/* Left Side - Navigation & Info */}
                 <div
                     ref={leftSectionRef}
-                    className="w-full lg:w-1/3 flex flex-col justify-between border-b lg:border-b-0  border-gray-800/50 p-6 lg:p-8"
+                    className="w-full lg:w-[45%] flex flex-col justify-between border-b lg:border-b-0 border-[#010101]/10 p-6 lg:p-8"
                 >
                     {/* Header */}
                     <div>
                         <div className="hero-static-element mb-4 lg:mb-8">
-                            <h1 className="text-4xl font-heading tracking-wider lg:text-6xl text-nowrap font-black mb-1 lg:mb-2 ">
+                            <h1
+                                className="text-4xl font-heading tracking-wider lg:text-7xl text-nowrap font-black mb-1 lg:mb-2"
+                                style={{ color: "#010101" }}
+                            >
                                 About <span className="text-[#ff9000]">Social Villa</span>
                             </h1>
-                            <p className="text-gray-400 text-xs lg:text-sm">Where brands become legends</p>
+                            <p className="text-base text-[#010101]">
+                                Where brands become legends
+                            </p>
                         </div>
 
                         {/* Enhanced Left Content - Simplified for mobile */}
                         <div className="space-y-6 lg:space-y-8 mb-8 lg:mb-12">
                             {/* Mission Statement */}
                             <div className="hero-static-element">
-                                <h3 className="text-base lg:text-xl font-semibold text-[#ff9000]/80 mb-1 lg:mb-3">Our Mission</h3>
-                                <p className="text-gray-300 text-xs lg:text-sm leading-relaxed">
-                                    Transform ordinary brands into extraordinary experiences.
+                                <h3 className="text-base lg:text-2xl font-semibold text-[#ff9000] mb-1 lg:mb-3">Our Mission</h3>
+                                <p className="text-base leading-relaxed text-[#010101]">
+                                    Transform ordinary brands into extraordinary experiences that captivate audiences and drive meaningful engagement.
                                 </p>
                             </div>
 
                             <div className="hero-static-element space-y-2 lg:space-y-4">
-                                <h3 className="text-base lg:text-xl font-semibold text-[#ff9000]/80 mb-2 lg:mb-3">Core Values</h3>
-                                <div className="space-y-1 lg:space-y-3">
-                                    {["Innovation First", "Data-Driven", "Client Obsessed"].map((value, index) => (
+                                <h3 className="text-base lg:text-xl font-semibold text-[#ff9000] mb-2 lg:mb-3">
+                                    Core Values
+                                </h3>
+
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 lg:gap-y-3">
+                                    {[
+                                        "Innovation First",
+                                        "Data-Driven",
+                                        "Client Obsessed",
+                                        "Integrity Always",
+                                        "Continuous Learning",
+                                        "Impact Oriented"
+                                    ].map((value) => (
                                         <div key={value} className="flex items-center space-x-3">
                                             <div className="w-2 h-2 bg-[#ff9000] rounded-full"></div>
-                                            <span className="text-gray-300 text-xs lg:text-sm">{value}</span>
+                                            <span className="text-base leading-relaxed text-[#010101]">
+                                                {value}
+                                            </span>
                                         </div>
                                     ))}
                                 </div>
                             </div>
+
                         </div>
                     </div>
 
@@ -309,25 +324,39 @@ export default function Introduction() {
                     <div className="hero-static-element">
                         <div className="grid grid-cols-4 lg:grid-cols-2 gap-2 lg:gap-4">
                             <div>
-                               <div className="text-xl lg:text-3xl font-black text-[#ff9000] stat-number" data-count="5">0 {"+"}</div>
-                                <div className="text-xs text-gray-400 uppercase tracking-wider">Years</div>
+                                <div className="text-xl lg:text-3xl font-black text-[#ff9000] stat-number" data-count="5">
+                                    5+
+                                </div>
+                                <div className="text-xs uppercase tracking-wider" style={{ color: "#010101", opacity: 0.6 }}>
+                                    Years
+                                </div>
                             </div>
                             <div>
-                               <div className="text-xl lg:text-3xl font-black text-[#ff9000] stat-number" data-count="50">0 {"+"}</div>
-                                <div className="text-xs text-gray-400 uppercase tracking-wider">Clients</div>
+                                <div className="text-xl lg:text-3xl font-black text-[#ff9000] stat-number" data-count="50">
+                                    50+
+                                </div>
+                                <div className="text-xs uppercase tracking-wider" style={{ color: "#010101", opacity: 0.6 }}>
+                                    Clients
+                                </div>
                             </div>
                             <div>
-                                <div className="text-xl lg:text-3xl font-black text-[#ff9000] stat-number" data-count="98">0 {"+"}</div>
-                                <div className="text-xs text-gray-400 uppercase tracking-wider">Retention</div>
+                                <div className="text-xl lg:text-3xl font-black text-[#ff9000] stat-number" data-count="98">
+                                    98%
+                                </div>
+                                <div className="text-xs uppercase tracking-wider" style={{ color: "#010101", opacity: 0.6 }}>
+                                    Retention
+                                </div>
                             </div>
                             <div>
                                 <div className="text-xl lg:text-3xl font-black text-[#ff9000]">24/7</div>
-                                <div className="text-xs text-gray-400 uppercase tracking-wider">Support</div>
+                                <div className="text-xs uppercase tracking-wider" style={{ color: "#010101", opacity: 0.6 }}>
+                                    Support
+                                </div>
                             </div>
                         </div>
                     </div>
                     <button
-                        className="mt-8 bg-[#FF9000] text-black text-sm sm:text-base md:text-lg font-bold rounded-full transition-all duration-200 w-44 py-2"
+                        className="mt-8 bg-[#ff9000]/80 hover:bg-[#ff9000] text-white text-sm sm:text-base md:text-lg font-bold rounded-full transition-all duration-200 w-44 py-2"
                         onMouseEnter={handleButtonHover}
                         onMouseLeave={handleButtonLeave}
                     >
@@ -336,10 +365,7 @@ export default function Introduction() {
                 </div>
 
                 {/* Right Side - Content Display */}
-                <div
-                    ref={rightSectionRef}
-                    className="w-full relative min-h-0 max-h-none lg:max-h-[100vh]"
-                >
+                <div ref={rightSectionRef} className="w-full relative min-h-0 max-h-none   lg:max-h-[100vh]">
                     {/* Visual Background */}
                     <div className="absolute inset-0 p-4 lg:p-12">
                         <div className="w-full h-full rounded-xl lg:rounded-3xl overflow-hidden">
@@ -349,27 +375,43 @@ export default function Introduction() {
 
                     {/* Content Overlay */}
                     <div className="relative z-10 h-full flex flex-col justify-center p-8 lg:p-16">
-                        <div key={activeCard} className="right-card-content animate-in fade-in slide-in-from-right-4 duration-400 md:px-6">
+                        <div
+                            key={activeCard}
+                            className="right-card-content animate-in fade-in slide-in-from-right-4 duration-400 md:px-6"
+                        >
                             {/* Category Badge */}
-                            <div className="inline-flex items-center space-x-2 bg-[#ff9000]/10 border border-[#ff9000]/20 rounded-full px-2 py-1 lg:px-4 lg:py-2 mb-2 lg:mb-4">
+                            <div className="inline-flex items-center space-x-2 bg-[#ff9000]/10 border border-[#ff9000]/30 rounded-full px-2 py-1 lg:px-4 lg:py-2 mb-2 lg:mb-4">
                                 <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-[#ff9000] rounded-full"></div>
-                                <span className="text-[#ff9000]/80 text-xs lg:text-sm font-medium">{cards[activeCard].category}</span>
+                                <span className="text-[#ff9000] text-xs lg:text-sm font-medium">{cards[activeCard].category}</span>
                             </div>
 
                             {/* Main Content */}
-                            <h2 className="text-2xl lg:text-5xl font-black mb-1 lg:mb-2 leading-tight">{cards[activeCard].title}</h2>
-                            <h3 className="text-lg lg:text-2xl font-light text-[#ff9000]/80 mb-2 lg:mb-4 italic">
+                            <h2 className="text-2xl lg:text-5xl font-bold mb-1 lg:mb-2 leading-tight text-[#010101]" >
+                                {cards[activeCard].title}
+                            </h2>
+                            <h3 className="text-lg lg:text-2xl font-light text-[#ff9000] mb-2 lg:mb-4 italic">
                                 {cards[activeCard].subtitle}
                             </h3>
-                            <p className="text-base lg:text-xl text-gray-300 leading-relaxed mb-3 lg:mb-8 max-w-lg">
+                            <p
+                                className="text-base lg:text-xl leading-relaxed mb-3 lg:mb-8 max-w-lg"
+                                style={{ color: "#010101", opacity: 0.8 }}
+                            >
                                 {cards[activeCard].description}
                             </p>
 
                             {/* Stat Display */}
                             <div className="flex items-center space-x-3">
-                                <div className="bg-gray-900/50 border flex items-center justify-center flex-col border-gray-700/50 rounded-lg px-4 py-2 lg:px-6 lg:py-4">
+                                <div
+                                    className="border flex items-center justify-center flex-col rounded-lg px-4 py-2 lg:px-6 lg:py-4"
+                                    style={{
+                                        backgroundColor: "rgba(255, 255, 255, 0.6)",
+                                        borderColor: "rgba(1, 1, 1, 0.1)",
+                                    }}
+                                >
                                     <div className="text-xl lg:text-3xl font-black text-[#ff9000]">{cards[activeCard].stats.value}</div>
-                                    <div className="text-xs text-gray-400 uppercase tracking-wider">{cards[activeCard].stats.label}</div>
+                                    <div className="text-xs uppercase tracking-wider" style={{ color: "#010101", opacity: 0.6 }}>
+                                        {cards[activeCard].stats.label}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -379,14 +421,16 @@ export default function Introduction() {
                     <div className="absolute bottom-3 right-3 lg:bottom-8 lg:right-8 z-40 flex items-center space-x-1 lg:space-x-2">
                         <button
                             onClick={handlePrevious}
-                            className="p-2 lg:p-3 bg-black/80 border border-[#ff9000]/50 text-[#ff9000] rounded-full hover:bg-[#ff9000] hover:text-black transition-all"
+                            className="p-2 lg:p-3 border border-[#ff9000]/50 text-[#ff9000] rounded-full hover:bg-[#ff9000] hover:text-[#010101] transition-all"
+                            style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
                         >
                             <ChevronLeft className="w-4 h-4 lg:w-5 lg:h-5" strokeWidth={2.5} />
                         </button>
 
                         <button
                             onClick={handleNext}
-                            className="p-2 lg:p-3 bg-black/80 border border-[#ff9000]/50 text-[#ff9000] rounded-full hover:bg-[#ff9000] hover:text-black transition-all"
+                            className="p-2 lg:p-3 border border-[#ff9000]/50 text-[#ff9000] rounded-full hover:bg-[#ff9000] hover:text-[#010101] transition-all"
+                            style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
                         >
                             <ChevronRight className="w-4 h-4 lg:w-5 lg:h-5" strokeWidth={2.5} />
                         </button>

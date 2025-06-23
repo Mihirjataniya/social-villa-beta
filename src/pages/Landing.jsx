@@ -6,11 +6,13 @@ import Comparison from '../components/Comparision'
 import Testimonials from '../components/Testimonials'
 import ProjectSection from '../components/Projects'
 import DoubleMarquee from '../components/DoubleMarqee'
+import Home2 from '../components/Home2'
 
 const Landing = () => {
   return (
     <div>
-      <Home />
+      {/* <Home /> */}
+      <Home2 />
       <DoubleMarquee />
       <Introduction />
       <ServicesSection />

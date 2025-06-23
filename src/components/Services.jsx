@@ -1,10 +1,6 @@
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+"use client"
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
-}
+import { useEffect, useRef } from "react"
 
 const services = [
   {
@@ -65,59 +61,44 @@ export default function ServicesSection() {
   const cardsRef = useRef(null)
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in")
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: "-50px 0px" },
+    )
 
-      // Title & subtitle animation
-      tl.from(titleRef.current, {
-        y: 100,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out",
-      })
-        .from(
-          subtitleRef.current,
-          {
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out",
-          },
-          "-=0.8"
-        );
+    if (titleRef.current) observer.observe(titleRef.current)
+    if (subtitleRef.current) observer.observe(subtitleRef.current)
 
-      // Scroll-triggered animation for service cards
-      gsap.utils.toArray(".service-card").forEach((card, i) => {
-        gsap.from(card, {
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-          opacity: 0,
-          y: 80,
-          scale: 0.9,
-          duration: 0.8,
-          delay: i * 0.1,
-          ease: "power3.out",
-        });
-      });
-    }, sectionRef);
+    // Observe service cards
+    const cards = document.querySelectorAll(".service-card")
+    cards.forEach((card, index) => {
+      card.style.transitionDelay = `${index * 0.1}s`
+      observer.observe(card)
+    })
 
-    return () => ctx.revert();
-  }, []);
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section ref={sectionRef} className=" bg-black mt-6  md:mt-12 md:px-4">
-      <div className="max-w-7xl mx-auto">
+    <section ref={sectionRef} className="py-10">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 ref={titleRef} className="text-4xl text-[#fffaf5] font-heading tracking-wider lg:text-6xl text-nowrap font-black mb-1 lg:mb-2 ">
-            our <span className="text-[#ff9000]">Services</span>
+        <div className="text-center mb-3  ">
+          <h1
+            ref={titleRef}
+            className="text-4xl lg:text-6xl font-heading font-bold mb-4 leading-tight text-[#1a1a1a] tracking-wider"
+          >
+            Our <span className="text-[#ff9000]">Services</span>
           </h1>
           <p
             ref={subtitleRef}
-            className="text-xl md:text-2xl text-[#FFFAF5] opacity-80 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-[#1a1a1a] max-w-3xl mx-auto  opacity-0 transition-all duration-1000 ease-out delay-300 "
           >
             Elevating brands through strategic innovation and creative excellence
           </p>
@@ -126,19 +107,55 @@ export default function ServicesSection() {
         {/* Services Grid */}
         <div
           ref={cardsRef}
-          className="flex flex-row  overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-x-visible px-1 snap-x snap-mandatory scroll-smooth no-scrollbar"
+          className="flex flex-row overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-x-visible px-1 snap-x snap-mandatory scroll-smooth scrollbar-hide gap-6"
         >
           {services.map((service) => (
-            <div key={service.id} className="service-card parent">
-              <div className="card">
-                <div className="content-box">
-                  <span className="card-title">{service.title}</span>
-                  <p className="card-content">{service.summary}</p>
-                  <span className="see-more">{service.tagline}</span>
+            <div
+              key={service.id}
+              className="service-card w-full p-5 min-w-[380px] opacity-0 my-4 md:my-0 translate-y-8 transition-all duration-800 ease-out"
+              style={{ perspective: '1000px' }}
+            >
+              <div className="card-container pt-12 border-2 border-[#ff9000]/40 w-full min-h-80 flex flex-col h-full relative rounded-2xl overflow-hidden transition-all duration-500 ease-in-out hover:border-[#ff9000]/80"
+                   style={{
+                     transformStyle: 'preserve-3d',
+                     background: `linear-gradient(135deg, transparent 18.75%, rgba(251, 146, 60, 0.08) 0 31.25%, transparent 0), repeating-linear-gradient(45deg, rgba(251, 146, 60, 0.03) -6.25% 6.25%, rgba(255, 255, 255, 0.1) 0 18.75%)`,
+                     backgroundSize: '60px 60px',
+                     backgroundPosition: '0 0, 0 0',
+                     boxShadow: 'rgba(251, 146, 60, 0.15) 0px 20px 40px -10px'
+                   }}>
+                
+                {/* Content Box */}
+                <div className="bg-gradient-to-br from-[#ff9000]/80 to-[#ff9000] transition-all duration-500 ease-in-out pt-15 px-6 pb-6 flex-grow flex flex-col rounded-xl"
+                     style={{ transformStyle: 'preserve-3d' }}>
+                  
+                  <h3 className="inline-block text-white text-2xl md:text-xl font-black transition-all duration-500 ease-in-out leading-tight mb-4 hover:text-black"
+                      style={{ transform: 'translate3d(0px, 0px, 50px)' }}>
+                    {service.title}
+                  </h3>
+                  
+                  <p className="mt-2 text-sm md:text-xs font-semibold text-white opacity-95 transition-all duration-500 ease-in-out leading-snug flex-grow mb-5 hover:text-neutral-600 hover:opacity-100"
+                     style={{ transform: 'translate3d(0px, 0px, 30px)' }}>
+                    {service.summary}
+                  </p>
+                  
+                  <span className="cursor-pointer mt-auto inline-block font-black text-xs uppercase text-[#ff9000]/80 bg-white py-3 px-4 transition-all duration-500 ease-in-out tracking-wider border-2 border-white rounded-lg hover:bg-[#ff9000]/80 hover:text-black hover:border-[#ff9000]/80"
+                        style={{ transform: 'translate3d(0px, 0px, 20px)' }}>
+                    {service.tagline}
+                  </span>
                 </div>
-                <div className="date-box">
-                  <span className="month">{service.category}</span>
-                  <span className="date">{service.number}</span>
+
+                {/* Date Box */}
+                <div className="absolute top-7 right-7 h-16 w-16 md:h-16 md:w-20 bg-white border-2 border-[#ff9000]/80 p-2 flex flex-col items-center justify-center rounded-xl"
+                     style={{ 
+                       transform: 'translate3d(0px, 0px, 80px)',
+                       boxShadow: 'rgba(251, 146, 60, 0.2) 0px 17px 20px -10px'
+                     }}>
+                  <span className="block text-center text-[#ff9000]/80 text-xs font-bold mb-1 tracking-wide">
+                    {service.category}
+                  </span>
+                  <span className="block text-center text-xl md:text-lg font-black text-[#ff9000]/80">
+                    {service.number}
+                  </span>
                 </div>
               </div>
             </div>
@@ -147,175 +164,24 @@ export default function ServicesSection() {
       </div>
 
       <style jsx>{`
-        .parent {
-          width: 100%;
-          padding: 20px;
-          perspective: 1000px;
-           min-width: 380px;
-        }
-         
-        .card {
-          padding-top: 50px;
-          border: 1px solid #b8b8b8;
-          transform-style: preserve-3d;
-          background: linear-gradient(135deg, #0000 18.75%, rgba(255, 144, 0, 0.1) 0 31.25%, #0000 0),
-              repeating-linear-gradient(45deg, rgba(255, 144, 0, 0.05) -6.25% 6.25%, rgba(255, 250, 245, 0.02) 0 18.75%);
-          background-size: 60px 60px;
-          background-position: 0 0, 0 0;
-          background-color: #111111;
-          width: 100%;
-          box-shadow: rgba(255, 144, 0, 0.3) 0px 30px 30px -10px;
-          transition: all 0.5s ease-in-out;
-          min-height: 320px;
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-          position: relative;
+        .animate-in {
+          opacity: 1 !important;
+          transform: translateY(0) !important;
         }
 
-        .card:hover {
+        .card-container:hover {
           background-position: -100px 100px, -100px 100px;
           transform: rotate3d(0.5, 1, 0, 30deg);
-          box-shadow: rgba(255, 144, 0, 0.5) 0px 40px 40px -10px;
+          box-shadow: rgba(251, 146, 60, 0.25) 0px 30px 60px -10px;
         }
 
-        .content-box {
-          background: linear-gradient(135deg, #bd6904, #c27000);    
-          transition: all 0.5s ease-in-out;
-          padding: 60px 25px 25px 25px;
-          transform-style: preserve-3d;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-           flex-grow: 1;
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
 
-        .card:hover .content-box {
-          background: linear-gradient(135deg, #000000, #1a1a1a);
-        }
-
-        .content-box .card-title {
-          display: inline-block;
-          color: #FFFAF5;
-          font-size: 24px;
-          font-weight: 900;
-          transition: all 0.5s ease-in-out;
-          transform: translate3d(0px, 0px, 50px);
-          line-height: 1.2;
-          margin-bottom: 15px;
-        }
-
-        .content-box .card-title:hover {
-          transform: translate3d(0px, 0px, 60px);
-        }
-
-        .card:hover .content-box .card-title {
-          color: #FF9000;
-        }
-
-        .content-box .card-content {
-          margin-top: 10px;
-          font-size: 13px;
-          font-weight: 600;
-          color: #FFFAF5;
-          opacity: 0.9;
-          transition: all 0.5s ease-in-out;
-          transform: translate3d(0px, 0px, 30px);
-          line-height: 1.4;
-          flex-grow: 1;
-          margin-bottom: 20px;
-        }
-
-        .content-box .card-content:hover {
-          transform: translate3d(0px, 0px, 60px);
-        }
-
-        .card:hover .content-box .card-content {
-          color: #FF9000;
-          opacity: 1;
-        }
-
-        .content-box .see-more {
-          cursor: pointer;
-          margin-top: auto;
-          display: inline-block;
-          font-weight: 900;
-          font-size: 10px;
-          text-transform: uppercase;
-          color: #FF9000;
-          background: #FFFAF5;
-          padding: 0.7rem 1rem;
-          transition: all 0.5s ease-in-out;
-          transform: translate3d(0px, 0px, 20px);
-          letter-spacing: 0.5px;
-          border: 2px solid #FFFAF5;
-        }
-
-        .content-box .see-more:hover {
-          transform: translate3d(0px, 0px, 60px);
-        }
-
-        .card:hover .content-box .see-more {
-          background: #FF9000;
-          color: #000000;
-          border-color: #FF9000;
-        }
-
-        .date-box {
-          position: absolute;
-          top: 30px;
-          right: 30px;
-          height: 70px;
-          width: 70px;
-          background: #FFFAF5;
-          border: 2px solid #FF9000;
-          padding: 10px;
-          transform: translate3d(0px, 0px, 80px);
-          box-shadow: rgba(255, 144, 0, 0.3) 0px 17px 10px -10px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .date-box span {
-          display: block;
-          text-align: center;
-        }
-
-        .date-box .month {
-          color: #FF9000;
-          font-size: 9px;
-          font-weight: 700;
-          margin-bottom: 5px;
-          letter-spacing: 0.5px;
-        }
-
-        .date-box .date {
-          font-size: 22px;
-          font-weight: 900;
-          color: #FF9000;
-        }
-
-        @media (max-width: 768px) {
-          .content-box .card-title {
-            font-size: 20px;
-          }
-          
-          .content-box .card-content {
-            font-size: 12px;
-          }
-          
-          .date-box {
-            height: 60px;
-            width: 60px;
-            top: 25px;
-            right: 25px;
-          }
-          
-          .date-box .date {
-            font-size: 18px;
-          }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
         }
       `}</style>
     </section>

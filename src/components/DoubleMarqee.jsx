@@ -62,16 +62,16 @@ export default function DoubleMarquee() {
       return (
         <div
           key={index}
-          className="flex items-center mx-4 bg-[#FF9000] text-black px-6 py-3 rounded-full whitespace-nowrap"
+          className="flex items-center mx-4 bg-[#ff9000] hover:bg-orange-500 text-white px-6 py-2 rounded-full whitespace-nowrap"
         >
-          <Icon className="w-5 h-5 mr-3" />
+          <Icon className="w-3 h-3 mr-3" />
           <span className="text-sm font-medium">{service.name}</span>
         </div>
       )
     })
 
   return (
-    <div className="w-full bg-black py-10 space-y-8">
+    <div className="w-full bg-[#FCF6F1] py-10 space-y-8">
       <div className="marquee-wrapper">
         <div className="marquee">{renderMarqueeContent(services1)}</div>
       </div>
