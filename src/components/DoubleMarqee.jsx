@@ -71,7 +71,7 @@ export default function DoubleMarquee() {
     })
 
   return (
-    <div className="w-full bg-[#FCF6F1] py-10 space-y-8">
+    <div className="w-full bg-[#FCF6F1] my-8 md:my-24 py-10 space-y-8">
       <div className="marquee-wrapper">
         <div className="marquee">{renderMarqueeContent(services1)}</div>
       </div>

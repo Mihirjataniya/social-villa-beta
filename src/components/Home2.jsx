@@ -33,7 +33,7 @@ export default function ModernHero() {
   }, [])
 
   return (
-    <div ref={heroRef} className="relative min-h-screen overflow-hidden bg-[#FFF8ED]">
+    <div ref={heroRef} className="relative overflow-hidden bg-[#FFF8ED]">
       {/* Animated Grid Background */}
       <div ref={gridRef} className="absolute inset-0 opacity-20">
         {Array.from({ length: 15 }).map((_, i) => (
@@ -54,7 +54,7 @@ export default function ModernHero() {
 
       
 
-      <div className="relative z-10 flex mt-4 min-h-screen px-4 sm:px-6 lg:px-8 py-8 sm:py-0">
+      <div className="relative z-10 flex mt-4 px-4 sm:px-6 lg:px-8 py-8 sm:py-0">
         <div className="w-full max-w-7xl mx-auto">
           <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
 
@@ -256,12 +256,12 @@ export default function ModernHero() {
       </div>
 
       {/* Scroll Indicator - Hidden on mobile */}
-      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:flex flex-col items-center animate-bounce">
-        <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-[#ff9000]/80 rounded-full flex justify-center">
-          <div className="w-1 h-2 sm:h-3 bg-[#ff9000]/80 rounded-full mt-1 sm:mt-2 animate-pulse" />
+      {/* <div className="absolute bottom-8 sm:bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:flex flex-col items-center animate-bounce">
+        <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-[#ff9000]/80 rounded-full  flex justify-center">
+          <div className="w-1 h-2 sm:h-3 bg-[#ff9000]/80 rounded-full mt-8 sm:mt-2 animate-pulse" />
         </div>
         <p className="text-xs sm:text-sm mt-2 text-[#1a1a1a]">Scroll to explore</p>
-      </div>
+      </div> */}
 
       {/* Additional Styles */}
       <style jsx>{`

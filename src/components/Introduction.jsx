@@ -260,7 +260,7 @@ export default function Introduction() {
     return (
         <div
             ref={containerRef}
-            className="max-w-[85rem] mx-auto relative min-h-screen overflow-x-hidden mt-12"
+            className="max-w-[85rem] mx-auto relative my-12 md:my-24 overflow-x-hidden mt-12"
             style={{ backgroundColor: "#FCF6F1", color: "#010101" }}
         >
             <div className="flex flex-col lg:flex-row h-full">

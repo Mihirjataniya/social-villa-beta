@@ -2,12 +2,13 @@
 
 import { useState, useEffect, useRef } from "react"
 import { ChevronDown, Menu, X } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 export default function Navbar() {
   const mobileMenuRef = useRef(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-
+  const navigate = useNavigate()
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev)
 
   useEffect(() => {
@@ -38,10 +39,7 @@ export default function Navbar() {
     }
   }, [isMobileMenuOpen])
 
-  const handleNavigation = (path) => {
-    // Replace with your navigation logic
-    console.log(`Navigate to: ${path}`)
-  }
+ 
 
   return (
     <nav
@@ -52,7 +50,7 @@ export default function Navbar() {
       <div className="mx-auto px-4 sm:px-6 lg:px-14">
         <div className="grid grid-cols-2 md:grid-cols-3 items-center h-16 md:h-20">
           {/* Logo */}
-          <div onClick={() => handleNavigation("/")} className="flex w-full cursor-pointer justify-start">
+          <div onClick={() => navigate("/")} className="flex w-full cursor-pointer justify-start">
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">SV</span>
