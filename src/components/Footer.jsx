@@ -63,18 +63,18 @@ function Footer() {
             ref={footerRef}
             className="bg-gradient-to-br from-orange-50 via-orange-100 to-orange-200 py-20 px-8 relative overflow-hidden border-t-2 border-orange-300"
         >
-            {/* Background elements */}
+
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(251,146,60,0.1)_0,transparent_70%)]" />
             <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,rgba(251,146,60,0.05)_25%,transparent_25%),linear-gradient(-45deg,rgba(251,146,60,0.05)_25%,transparent_25%)] bg-[size:100px_100px]" />
 
             <div className="relative z-10 max-w-7xl mx-auto">
-                {/* Main footer content */}
+
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                    {/* Logo and description */}
+                 
                     <div className="footer-item md:col-span-2">
                         <div className="mb-6">
                             <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-2">
-                                Social <span className="text-[#ff9000]">Villa</span>
+                                Social <span className="text-[#ff9000]">Hub</span>
                             </h2>
                         </div>
                         <p className="text-neutral-600 text-lg leading-relaxed mb-6 max-w-md">
@@ -99,8 +99,6 @@ function Footer() {
                             ))}
                         </div>
                     </div>
-
-                    {/* Services */}
                     <div className="footer-item">
                         <h3 className="text-neutral-900 text-xl font-bold mb-6">Services</h3>
                         <ul className="space-y-3">
@@ -117,12 +115,11 @@ function Footer() {
                         </ul>
                     </div>
 
-                    {/* Contact */}
                     <div className="footer-item">
                         <h3 className="text-neutral-900 text-xl font-bold mb-6">Contact</h3>
                         <div className="space-y-3 text-neutral-600">
                             <p className="hover:text-[#ff9000] transition-colors duration-300 cursor-pointer">
-                                hello@socialvilla.com
+                                hello@socialhub.com
                             </p>
                             <p className="hover:text-[#ff9000] transition-colors duration-300 cursor-pointer">+1 (555) 123-4567</p>
                             <p className="leading-relaxed">
@@ -137,7 +134,7 @@ function Footer() {
                 {/* Bottom bar */}
                 <div className="footer-item border-t-2 border-orange-300 pt-8 flex flex-col md:flex-row justify-between items-center">
                     <div className="text-neutral-600 text-center md:text-left mb-4 md:mb-0 font-medium">
-                        © 2025 Social Villa. All rights reserved. Crafted with passion and precision.
+                        © 2025 Social Hub. All rights reserved. Crafted with passion and precision.
                     </div>
                     <div className="flex space-x-6 text-sm">
                         {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((link) => (

@@ -27,7 +27,7 @@ function TestimonialsSection() {
       name: "Sarah Johnson",
       role: "Startup CEO",
       quote:
-        "Professional, creative, and results-driven. Social Villa transformed our brand identity and boosted our market presence significantly.",
+        "Professional, creative, and results-driven. Social Hub transformed our brand identity and boosted our market presence significantly.",
       rating: 5,
     },
     {
@@ -41,7 +41,7 @@ function TestimonialsSection() {
       name: "Emily Parker",
       role: "Restaurant Owner",
       quote:
-        "Working with Social Villa was a breath of fresh air. Their creative approach and dedication to our success made all the difference.",
+        "Working with Social Hub was a breath of fresh air. Their creative approach and dedication to our success made all the difference.",
       rating: 4,
     },
   ]
@@ -335,7 +335,7 @@ function TestimonialsSection() {
 
           <div ref={leftContentRef} className="space-y-8">
             <p className="text-xl md:text-2xl leading-relaxed text-[#010101]">
-              Don't just take our word for it. Here's what our clients have to say about working with Social Villa.
+              Don't just take our word for it. Here's what our clients have to say about working with Social Hub.
             </p>
 
             <h3 className="text-3xl font-bold text-[#ff9000]">Clients Love Us</h3>

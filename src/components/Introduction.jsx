@@ -276,7 +276,7 @@ export default function Introduction() {
                                 className="text-4xl font-heading tracking-wider lg:text-7xl text-nowrap font-black mb-1 lg:mb-2"
                                 style={{ color: "#010101" }}
                             >
-                                About <span className="text-[#ff9000]">Social Villa</span>
+                                About <span className="text-[#ff9000]">Social Hub</span>
                             </h1>
                             <p className="text-base text-[#010101]">
                                 Where brands become legends
